@@ -262,6 +262,18 @@
       border-radius: 20px;
       z-index: 2;
     }
+    .zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--negro);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 20px;
+      z-index: 2;
+    }
     .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     .card-brand {
       font-size: 11px;
@@ -334,7 +346,7 @@
     .step-box h3 { font-size: 16px; margin-bottom: 6px; }
     .step-box p { font-size: 13px; color: var(--gris-texto); }
 
-    /* FAQ / Aviso importante */
+    /* FAQ */
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -349,6 +361,53 @@
     }
     .faq-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--negro); }
     .faq-card p { font-size: 14px; color: var(--gris-texto); }
+
+    /* Modal de Producto Ampliado */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 250;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--blanco);
+      border-radius: 16px;
+      max-width: 560px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(20, 20, 20, 0.85);
+      color: var(--blanco);
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .modal-img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      display: block;
+      background: var(--negro-suave);
+    }
+    .modal-content { padding: 22px; }
+    .modal-content h3 { font-size: 22px; margin-bottom: 8px; }
+    .modal-content p { font-size: 14px; color: var(--gris-texto); margin-bottom: 16px; }
 
     /* Carrito lateral */
     .overlay {
@@ -453,6 +512,18 @@
       display: block;
       border: 1px solid var(--gris-borde);
     }
+    .btn-download-qr {
+      display: inline-block;
+      margin: 6px 0 10px;
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 9px 18px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .btn-download-qr:hover { background: var(--fucsia); }
     .qr-box p { font-size: 12px; color: var(--gris-texto); }
     .btn-whatsapp {
       width: 100%;
@@ -499,7 +570,7 @@
 <body>
 
   <div class="top-bar">
-    MAQUILLAJE AMERICANO E.L.F. 100% ORIGINAL • <span>ENVÍOS POR PAGAR A LOS 9 DEPARTAMENTOS DE BOLIVIA</span>
+    MAQUILLAJE AMERICANO E.L.F. 100% ORIGINAL • <span>ENVÍOS POR PAGAR A TODA BOLIVIA</span>
   </div>
 
   <header>
@@ -535,7 +606,7 @@
     <div class="trust-inner">
       <span><span class="dot">✦</span> 100% Original e.l.f.</span>
       <span><span class="dot">✦</span> Precios en Bolivianos (Bs)</span>
-      <span><span class="dot">✦</span> Envíos Nacionales por Pagar</span>
+      <span><span class="dot">✦</span> Envíos a Toda Bolivia</span>
       <span><span class="dot">✦</span> Atención Directa por WhatsApp</span>
     </div>
   </div>
@@ -544,7 +615,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Nuestros Box Mayoristas e.l.f.</h2>
-        <p>Elige el tamaño de Box ideal para tu inversión y agrégalo al carrito para calcular tu total en Bs.</p>
+        <p>Elige el Box ideal para tu inversión y agrégalo al carrito para ver tu total en Bs.</p>
       </div>
 
       <div class="products-grid" id="productsGrid"></div>
@@ -571,7 +642,7 @@
         <div class="step-box">
           <div class="step-num">3</div>
           <h3>Paga con QR</h3>
-          <p>Escanea el código QR en el carrito, realiza el pago en Bs y guarda tu comprobante.</p>
+          <p>Escanea o descarga el código QR en el carrito, paga en Bs y guarda tu comprobante.</p>
         </div>
         <div class="step-box">
           <div class="step-num">4</div>
@@ -595,7 +666,7 @@
         </div>
         <div class="faq-card">
           <h3>¿El envío está incluido en el precio?</h3>
-          <p>No. Los envíos a los 9 departamentos de Bolivia se realizan <strong>por pagar en destino</strong> (no están incluidos en el costo del Box mencionado).</p>
+          <p>No. Los <strong>envíos a toda Bolivia</strong> se realizan <strong>por pagar en destino</strong> (no están incluidos en el costo del Box mencionado).</p>
         </div>
         <div class="faq-card">
           <h3>¿Los productos son originales?</h3>
@@ -607,15 +678,33 @@
 
   <footer>
     <p><strong>NICE BOX AND BOL</strong> — Venta al por Mayor de Maquillaje e.l.f. en Bolivia</p>
-    <p style="margin-top: 6px;">WhatsApp de pedidos: +591 62455548 • Envíos a todo el país</p>
+    <p style="margin-top: 6px;">WhatsApp de pedidos: +591 62455548 • Envíos a Toda Bolivia</p>
   </footer>
 
+  <!-- Modal de vista ampliada del Box -->
+  <div class="modal-overlay" id="productModal" onclick="if(event.target === this) closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <img id="modalImg" src="" alt="" class="modal-img" />
+      <div class="modal-content">
+        <div class="card-brand" id="modalBrand"></div>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <div class="price-row">
+          <div class="card-price" id="modalPrice"></div>
+          <div class="unit-price" id="modalUnit"></div>
+        </div>
+        <button class="btn-add" id="modalAddBtn">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Carrito lateral -->
-  <div class="overlay" id="cartOverlay">
+  <div class="overlay" id="cartOverlay" onclick="if(event.target === this) toggleCart(false)">
     <div class="drawer">
       <div class="drawer-header">
         <h3>Tu Pedido Mayorista</h3>
-        <button class="close-btn" onclick="toggleCart()">&times;</button>
+        <button class="close-btn" onclick="toggleCart(false)">&times;</button>
       </div>
       <div class="drawer-body">
         <div id="cartItems"></div>
@@ -624,7 +713,7 @@
           <span>Total a pagar:</span>
           <span id="cartTotal">Bs 0</span>
         </div>
-        <p class="shipping-note">* El costo de envío no está incluido (se realiza por pagar en destino).</p>
+        <p class="shipping-note">* Envíos a toda Bolivia por pagar en destino (no incluido en el total).</p>
 
         <div class="form-group">
           <label>Nombre completo</label>
@@ -656,7 +745,8 @@
         <div class="qr-box">
           <strong>PAGO CON QR (BOLIVIANOS)</strong>
           <img src="QR.png" alt="Código QR de pago Nice Box and Bol" />
-          <p>Escanea o guarda este QR, realiza el pago del total en Bs y adjunta tu comprobante al enviarnos tu pedido por WhatsApp.</p>
+          <a href="QR.png" download="QR-NiceBoxAndBol.png" class="btn-download-qr">Descargar código QR</a>
+          <p>Descarga o escanea este QR, realiza el pago del total en Bs y adjunta tu comprobante al enviarnos tu pedido por WhatsApp.</p>
         </div>
 
         <button class="btn-whatsapp" onclick="sendWhatsAppOrder()">
@@ -680,7 +770,7 @@
         price: 1300,
         img: "20.jpeg",
         badge: "IDEAL INICIO",
-        desc: "Box surtido importado de EE. UU. perfecto para iniciar tu negocio de maquillaje con baja inversión."
+        desc: "Box surtido importado de EE. UU. perfecto para iniciar tu negocio de maquillaje con baja inversión. No se eligen piezas, pero puedes realizar ligeros cambios en el lote."
       },
       {
         id: 2,
@@ -690,7 +780,7 @@
         price: 1850,
         img: "30.jpeg",
         badge: "MÁS PEDIDO",
-        desc: "Excelente variedad de productos de alta demanda con mejor costo por pieza para revendedoras."
+        desc: "Excelente variedad de productos de alta demanda con mejor costo por pieza para revendedoras. No se eligen piezas, pero puedes realizar ligeros cambios en el lote."
       },
       {
         id: 3,
@@ -700,7 +790,7 @@
         price: 2650,
         img: "50.jpeg",
         badge: "GRAN MARGEN",
-        desc: "Lote mayorista ideal para tiendas y emprendedoras en crecimiento. Máxima rotación y ganancia."
+        desc: "Lote mayorista ideal para tiendas y emprendedoras en crecimiento. Máxima rotación y ganancia. No se eligen piezas, pero puedes realizar ligeros cambios en el lote."
       },
       {
         id: 4,
@@ -710,7 +800,7 @@
         price: 5000,
         img: "100.jpeg",
         badge: "MEJOR PRECIO",
-        desc: "Nuestro Box más rentable: 50 Bs por pieza en promedio. Ideal para comerciantes y distribuidoras."
+        desc: "Nuestro Box más rentable: 50 Bs por pieza en promedio. Ideal para comerciantes y distribuidoras. No se eligen piezas, pero puedes realizar ligeros cambios en el lote."
       }
     ];
 
@@ -722,15 +812,16 @@
         const unit = (p.price / p.pieces).toFixed(1).replace('.0', '');
         return `
           <div class="card">
-            <div class="card-img" onclick="addToCart(${p.id})">
+            <div class="card-img" onclick="openModal(${p.id})">
               <span class="badge-top">${p.badge}</span>
+              <span class="zoom-hint">Ver foto</span>
               <span class="badge-pieces">${p.pieces} piezas</span>
               <img src="${p.img}" alt="${p.name}" />
             </div>
             <div class="card-body">
               <div class="card-brand">${p.brand}</div>
               <div class="card-title">${p.name}</div>
-              <div class="card-desc">${p.desc}</div>
+              <div class="card-desc">${p.desc.split('. ')[0]}.</div>
               <div class="price-row">
                 <div class="card-price">Bs ${p.price.toLocaleString('es-BO')}</div>
                 <div class="unit-price">~Bs ${unit} c/u</div>
@@ -740,6 +831,28 @@
           </div>
         `;
       }).join('');
+    }
+
+    function openModal(id) {
+      const p = PRODUCTS.find(item => item.id === id);
+      if (!p) return;
+      const unit = (p.price / p.pieces).toFixed(1).replace('.0', '');
+      document.getElementById('modalImg').src = p.img;
+      document.getElementById('modalImg').alt = p.name;
+      document.getElementById('modalBrand').textContent = `${p.brand} • ${p.pieces} piezas`;
+      document.getElementById('modalTitle').textContent = p.name;
+      document.getElementById('modalDesc').textContent = p.desc;
+      document.getElementById('modalPrice').textContent = `Bs ${p.price.toLocaleString('es-BO')}`;
+      document.getElementById('modalUnit').textContent = `~Bs ${unit} c/u`;
+      document.getElementById('modalAddBtn').onclick = () => {
+        closeModal();
+        addToCart(p.id);
+      };
+      document.getElementById('productModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('productModal').classList.remove('open');
     }
 
     function addToCart(id) {
