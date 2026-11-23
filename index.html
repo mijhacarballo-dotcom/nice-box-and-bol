@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nice Box and Bol | Maquillaje Mayorista en Bolivia</title>
+  <title>Nice Box and Bol | Maquillaje Mayorista e.l.f. en Bolivia</title>
+  <link rel="icon" href="Logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --negro: #121212;
-      --negro-suave: #1f1f1f;
-      --rosa: #d8a7b1;
-      --rosa-claro: #f8eff1;
-      --dorado: #c9a96e;
+      --negro: #141414;
+      --negro-suave: #241b20;
+      --fucsia: #d91c77;
+      --fucsia-oscuro: #b81462;
+      --fucsia-suave: #fdf1f7;
+      --amarillo: #f2cf43;
       --blanco: #ffffff;
       --gris-texto: #555555;
-      --gris-borde: #eaeaea;
+      --gris-borde: #ece6e9;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,45 +35,58 @@
       background: var(--negro);
       color: var(--blanco);
       text-align: center;
-      padding: 8px 16px;
+      padding: 9px 16px;
       font-size: 12px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
-    .top-bar span { color: var(--dorado); font-weight: 600; }
+    .top-bar span { color: var(--amarillo); font-weight: 700; }
 
     /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--gris-borde);
     }
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .logo span { color: var(--dorado); }
-    nav { display: flex; gap: 24px; align-items: center; }
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(217, 28, 119, 0.25);
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .logo-text span { color: var(--fucsia); }
+
+    nav { display: flex; gap: 22px; align-items: center; }
     nav a {
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--dorado); }
+    nav a:hover { color: var(--fucsia); }
 
     .cart-btn {
       background: var(--negro);
@@ -87,9 +102,9 @@
       gap: 8px;
       transition: background 0.2s;
     }
-    .cart-btn:hover { background: var(--negro-suave); }
+    .cart-btn:hover { background: var(--fucsia); }
     .cart-count {
-      background: var(--rosa);
+      background: var(--amarillo);
       color: var(--negro);
       border-radius: 50%;
       width: 22px;
@@ -98,58 +113,59 @@
       align-items: center;
       justify-content: center;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--negro) 0%, #241c1e 100%);
+      background: linear-gradient(135deg, var(--negro) 0%, #301624 100%);
       color: var(--blanco);
-      padding: 75px 20px;
+      padding: 70px 20px;
       text-align: center;
     }
     .hero-inner { max-width: 820px; margin: 0 auto; }
     .hero-badge {
       display: inline-block;
-      border: 1px solid var(--dorado);
-      color: var(--dorado);
+      border: 1px solid var(--amarillo);
+      color: var(--amarillo);
       padding: 6px 16px;
       border-radius: 30px;
       font-size: 12px;
-      letter-spacing: 1.2px;
+      font-weight: 600;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(30px, 5vw, 50px);
       line-height: 1.15;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
-    .hero h1 span { color: var(--rosa); }
+    .hero h1 span { color: var(--amarillo); }
     .hero p {
-      color: #d6d6d6;
+      color: #e4dce0;
       font-size: 16px;
-      max-width: 620px;
-      margin: 0 auto 30px;
+      max-width: 650px;
+      margin: 0 auto 28px;
     }
     .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
-      background: var(--rosa);
-      color: var(--negro);
+      background: var(--fucsia);
+      color: var(--blanco);
       padding: 14px 28px;
       border-radius: 30px;
       font-weight: 700;
       font-size: 14px;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s, opacity 0.2s;
+      transition: transform 0.2s, background 0.2s;
     }
-    .btn-primary:hover { transform: translateY(-2px); opacity: 0.92; }
+    .btn-primary:hover { background: var(--fucsia-oscuro); transform: translateY(-2px); }
     .btn-outline {
       background: transparent;
       color: var(--blanco);
-      border: 1px solid var(--dorado);
+      border: 1px solid var(--amarillo);
       padding: 14px 28px;
       border-radius: 30px;
       font-weight: 600;
@@ -157,71 +173,47 @@
       cursor: pointer;
     }
 
-    /* Marcas */
-    .brands {
-      background: var(--rosa-claro);
-      padding: 22px 20px;
+    /* Cinta de beneficios */
+    .trust-bar {
+      background: var(--fucsia-suave);
+      padding: 18px 20px;
       border-bottom: 1px solid var(--gris-borde);
     }
-    .brands-inner {
+    .trust-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 36px;
+      gap: 32px;
       flex-wrap: wrap;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 600;
       color: var(--negro);
-      font-size: 15px;
     }
-    .brands-inner span { opacity: 0.85; }
+    .trust-inner span { display: flex; align-items: center; gap: 6px; }
+    .dot { color: var(--fucsia); font-weight: 800; }
 
     /* Secciones */
-    section { padding: 64px 20px; }
+    section { padding: 62px 20px; }
     .container { max-width: 1200px; margin: 0 auto; }
-    .section-title { text-align: center; margin-bottom: 36px; }
+    .section-title { text-align: center; margin-bottom: 38px; }
     .section-title h2 {
       font-family: 'Playfair Display', serif;
       font-size: 32px;
       margin-bottom: 8px;
     }
-    .section-title p { color: var(--gris-texto); font-size: 15px; }
-
-    /* Filtros */
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .filter-btn {
-      padding: 9px 20px;
-      border-radius: 25px;
-      border: 1px solid var(--gris-borde);
-      background: var(--blanco);
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--negro);
-      color: var(--blanco);
-      border-color: var(--negro);
-    }
+    .section-title p { color: var(--gris-texto); font-size: 15px; max-width: 680px; margin: 0 auto; }
 
     /* Grid de productos */
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
       gap: 24px;
     }
     .card {
       border: 1px solid var(--gris-borde);
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
       background: var(--blanco);
       display: flex;
@@ -229,37 +221,32 @@
       transition: box-shadow 0.25s, transform 0.25s;
     }
     .card:hover {
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 14px 32px rgba(217, 28, 119, 0.12);
       transform: translateY(-4px);
     }
     .card-img {
-      height: 210px;
-      background: linear-gradient(135deg, #1b1b1b, #36272b);
+      height: 240px;
+      background: var(--negro-suave);
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--blanco);
-      padding: 20px;
-      text-align: center;
+      overflow: hidden;
+      cursor: pointer;
     }
     .card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute;
-      inset: 0;
+      transition: transform 0.35s;
     }
+    .card:hover .card-img img { transform: scale(1.04); }
     .badge-top {
       position: absolute;
       top: 12px;
       left: 12px;
-      background: var(--dorado);
-      color: var(--negro);
+      background: var(--fucsia);
+      color: var(--blanco);
       font-size: 11px;
       font-weight: 700;
-      padding: 4px 10px;
+      padding: 5px 11px;
       border-radius: 20px;
       z-index: 2;
     }
@@ -267,58 +254,60 @@
       position: absolute;
       bottom: 12px;
       right: 12px;
-      background: rgba(18, 18, 18, 0.85);
-      color: var(--rosa);
+      background: rgba(20, 20, 20, 0.88);
+      color: var(--amarillo);
       font-size: 12px;
-      font-weight: 600;
-      padding: 4px 10px;
+      font-weight: 700;
+      padding: 5px 12px;
       border-radius: 20px;
       z-index: 2;
     }
-    .card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+    .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     .card-brand {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--dorado);
+      color: var(--fucsia);
       font-weight: 700;
       margin-bottom: 4px;
     }
-    .card-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .card-desc { font-size: 13px; color: var(--gris-texto); margin-bottom: 14px; flex: 1; }
-    .card-price {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--negro);
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
       margin-bottom: 14px;
     }
-    .card-price small { font-size: 12px; font-weight: 400; color: var(--gris-texto); }
-    .card-actions { display: flex; gap: 8px; }
+    .card-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--negro);
+    }
+    .unit-price {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--fucsia-oscuro);
+      background: var(--fucsia-suave);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
     .btn-add {
-      flex: 1;
+      width: 100%;
       background: var(--negro);
       color: var(--blanco);
       border: none;
-      padding: 11px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 13px;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
       cursor: pointer;
+      transition: background 0.2s;
     }
-    .btn-add:hover { background: #2c2c2c; }
-    .btn-info {
-      background: var(--rosa-claro);
-      color: var(--negro);
-      border: none;
-      padding: 11px 14px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 13px;
-      cursor: pointer;
-    }
+    .btn-add:hover { background: var(--fucsia); }
 
-    /* Cómo comprar y Envíos */
-    .steps-bg { background: var(--rosa-claro); }
+    /* Preguntas y Cómo Comprar */
+    .soft-bg { background: var(--fucsia-suave); }
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -327,29 +316,45 @@
     .step-box {
       background: var(--blanco);
       padding: 24px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid var(--gris-borde);
     }
     .step-num {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: var(--negro);
-      color: var(--dorado);
+      background: var(--fucsia);
+      color: var(--blanco);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 12px;
     }
     .step-box h3 { font-size: 16px; margin-bottom: 6px; }
     .step-box p { font-size: 13px; color: var(--gris-texto); }
 
-    /* Modal / Carrito */
+    /* FAQ / Aviso importante */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .faq-card {
+      border: 1px solid var(--gris-borde);
+      border-left: 4px solid var(--fucsia);
+      border-radius: 12px;
+      padding: 22px;
+      background: var(--blanco);
+    }
+    .faq-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--negro); }
+    .faq-card p { font-size: 14px; color: var(--gris-texto); }
+
+    /* Carrito lateral */
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0, 0, 0, 0.6);
       display: none;
       justify-content: flex-end;
       z-index: 200;
@@ -357,7 +362,7 @@
     .overlay.open { display: flex; }
     .drawer {
       width: 100%;
-      max-width: 440px;
+      max-width: 450px;
       background: var(--blanco);
       height: 100%;
       display: flex;
@@ -366,7 +371,6 @@
     }
     .drawer-header {
       padding: 18px 20px;
-      border-bottom: 1px solid var(--gris-borde);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -377,7 +381,7 @@
       background: none;
       border: none;
       color: var(--blanco);
-      font-size: 24px;
+      font-size: 26px;
       cursor: pointer;
     }
     .drawer-body { padding: 20px; flex: 1; }
@@ -393,8 +397,8 @@
     .cart-item p { font-size: 13px; color: var(--gris-texto); }
     .qty-controls { display: flex; align-items: center; gap: 8px; }
     .qty-btn {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       border: 1px solid var(--gris-borde);
       background: var(--blanco);
@@ -402,14 +406,19 @@
       font-weight: 700;
     }
     .total-box {
-      background: var(--rosa-claro);
-      padding: 14px;
+      background: var(--fucsia-suave);
+      padding: 14px 16px;
       border-radius: 10px;
       display: flex;
       justify-content: space-between;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 18px;
-      margin: 18px 0;
+      margin: 16px 0 6px;
+    }
+    .shipping-note {
+      font-size: 12px;
+      color: var(--gris-texto);
+      margin-bottom: 16px;
     }
 
     /* Formulario */
@@ -417,7 +426,7 @@
     .form-group label {
       display: block;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 4px;
     }
     .form-group input, .form-group select {
@@ -429,14 +438,22 @@
       font-size: 14px;
     }
     .qr-box {
-      border: 2px dashed var(--dorado);
-      background: #fffdf9;
+      border: 2px dashed var(--fucsia);
+      background: #fffafc;
       padding: 16px;
-      border-radius: 10px;
+      border-radius: 12px;
       text-align: center;
       margin: 16px 0;
     }
-    .qr-box p { font-size: 12px; color: var(--gris-texto); margin-top: 6px; }
+    .qr-box img {
+      width: 210px;
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 10px auto;
+      display: block;
+      border: 1px solid var(--gris-borde);
+    }
+    .qr-box p { font-size: 12px; color: var(--gris-texto); }
     .btn-whatsapp {
       width: 100%;
       background: #25d366;
@@ -456,41 +473,45 @@
       right: 22px;
       background: #25d366;
       color: var(--blanco);
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 30px;
       font-weight: 700;
       font-size: 14px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
       z-index: 150;
     }
 
     footer {
       background: var(--negro);
-      color: #bdbdbd;
+      color: #c8c8c8;
       text-align: center;
       padding: 36px 20px;
       font-size: 13px;
     }
-    footer strong { color: var(--dorado); }
+    footer strong { color: var(--amarillo); }
 
     @media (max-width: 720px) {
       nav a { display: none; }
+      .logo-text { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
   <div class="top-bar">
-    ENVÍOS NACIONALES A LOS 9 DEPARTAMENTOS DE BOLIVIA • <span>VENTA 100% MAYORISTA EN BS</span>
+    MAQUILLAJE AMERICANO E.L.F. 100% ORIGINAL • <span>ENVÍOS POR PAGAR A LOS 9 DEPARTAMENTOS DE BOLIVIA</span>
   </div>
 
   <header>
     <div class="nav-container">
-      <div class="logo">NICE BOX <span>&amp; BOL</span></div>
+      <a href="#" class="brand-wrap">
+        <img src="Logo.png" alt="Nice Box and Bol" class="brand-logo" />
+        <div class="logo-text">NICE BOX <span>&amp; BOL</span></div>
+      </a>
       <nav>
         <a href="#catalogo">Catálogo</a>
         <a href="#como-comprar">Cómo comprar</a>
-        <a href="#envios">Envíos</a>
+        <a href="#preguntas">Preguntas</a>
         <button class="cart-btn" onclick="toggleCart()">
           Carrito <span class="cart-count" id="cartCount">0</span>
         </button>
@@ -500,87 +521,93 @@
 
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-badge">Mayorista de Maquillaje en Bolivia</div>
-      <h1>Cajas cerradas y lotes mayoristas para <span>tu negocio de belleza</span></h1>
-      <p>Abastece tu tienda o inicia tu emprendimiento con marcas originales de alta rotación. Precios en bolivianos (Bs) y despachos seguros a todo el país.</p>
+      <div class="hero-badge">Importación Directa desde Estados Unidos</div>
+      <h1>Venta al por mayor: Maquillaje <span>e.l.f. 100% Original</span></h1>
+      <p>Abastece tu negocio con productos de alta demanda y excelente margen de ganancia. Box surtidos listos para emprender y revender en toda Bolivia.</p>
       <div class="hero-actions">
-        <a href="#catalogo" class="btn-primary">Ver Catálogo Mayorista</a>
-        <a href="#como-comprar" class="btn-outline">Cómo hacer tu pedido</a>
+        <a href="#catalogo" class="btn-primary">Ver Box Disponibles</a>
+        <a href="#preguntas" class="btn-outline">Dudas frecuentes</a>
       </div>
     </div>
   </section>
 
-  <div class="brands">
-    <div class="brands-inner">
-      <span>e.l.f.</span>
-      <span>MAYBELLINE</span>
-      <span>NYX</span>
-      <span>L.A. GIRL</span>
-      <span>WET N WILD</span>
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <span><span class="dot">✦</span> 100% Original e.l.f.</span>
+      <span><span class="dot">✦</span> Precios en Bolivianos (Bs)</span>
+      <span><span class="dot">✦</span> Envíos Nacionales por Pagar</span>
+      <span><span class="dot">✦</span> Atención Directa por WhatsApp</span>
     </div>
   </div>
 
   <section id="catalogo">
     <div class="container">
       <div class="section-title">
-        <h2>Catálogo Mayorista</h2>
-        <p>Selecciona tus cajas o lotes y agrégalos al carrito para calcular tu inversión en Bs.</p>
-      </div>
-
-      <div class="filters">
-        <button class="filter-btn active" onclick="filterProducts('todos', this)">Todos</button>
-        <button class="filter-btn" onclick="filterProducts('caja', this)">Cajas Cerradas</button>
-        <button class="filter-btn" onclick="filterProducts('lote', this)">Lotes Mayoristas</button>
-        <button class="filter-btn" onclick="filterProducts('promo', this)">Promociones</button>
+        <h2>Nuestros Box Mayoristas e.l.f.</h2>
+        <p>Elige el tamaño de Box ideal para tu inversión y agrégalo al carrito para calcular tu total en Bs.</p>
       </div>
 
       <div class="products-grid" id="productsGrid"></div>
     </div>
   </section>
 
-  <section id="como-comprar" class="steps-bg">
+  <section id="como-comprar" class="soft-bg">
     <div class="container">
       <div class="section-title">
-        <h2>¿Cómo comprar en Nice Box and Bol?</h2>
-        <p>Proceso rápido, transparente y con confirmación directa por WhatsApp.</p>
+        <h2>¿Cómo hacer tu pedido?</h2>
+        <p>Compra fácil, segura y con confirmación directa por WhatsApp.</p>
       </div>
       <div class="steps-grid">
         <div class="step-box">
           <div class="step-num">1</div>
-          <h3>Elige tus cajas</h3>
-          <p>Explora el catálogo y agrega las cajas cerradas o lotes mayoristas a tu carrito.</p>
+          <h3>Elige tu Box</h3>
+          <p>Selecciona el Box de 20, 30, 50 o 100 piezas y agrégalo al carrito.</p>
         </div>
         <div class="step-box">
           <div class="step-num">2</div>
-          <h3>Completa tus datos</h3>
-          <p>Indica tu nombre, celular y departamento de destino en Bolivia.</p>
+          <h3>Llena tus datos</h3>
+          <p>Indica tu nombre, número de WhatsApp y departamento de destino en Bolivia.</p>
         </div>
         <div class="step-box">
           <div class="step-num">3</div>
           <h3>Paga con QR</h3>
-          <p>Realiza el pago del total en Bs mediante el código QR y guarda tu comprobante.</p>
+          <p>Escanea el código QR en el carrito, realiza el pago en Bs y guarda tu comprobante.</p>
         </div>
         <div class="step-box">
           <div class="step-num">4</div>
-          <h3>Envía por WhatsApp</h3>
-          <p>Manda tu pedido y comprobante por WhatsApp. Verificamos y despachamos tu caja.</p>
+          <h3>Envía el comprobante</h3>
+          <p>Presiona el botón de WhatsApp para mandarnos tu pedido y comprobante. Confirmamos y coordinamos el envío.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="envios">
+  <section id="preguntas">
     <div class="container">
       <div class="section-title">
-        <h2>Envíos a toda Bolivia</h2>
-        <p>Llegamos a Santa Cruz, La Paz, Cochabamba, Oruro, Sucre, Tarija, Potosí, Beni y Pando mediante flotas y couriers de confianza con número de guía.</p>
+        <h2>Información Importante</h2>
+        <p>Resolvemos las dudas más comunes antes de realizar tu pedido mayorista.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h3>¿Ustedes eligen las piezas o yo?</h3>
+          <p><strong>No se eligen las piezas</strong>, ya que los Box vienen armados y surtidos para garantizar variedad y alta rotación, <strong>pero puedes realizar ligeros cambios en el lote</strong> al coordinar tu pedido por WhatsApp.</p>
+        </div>
+        <div class="faq-card">
+          <h3>¿El envío está incluido en el precio?</h3>
+          <p>No. Los envíos a los 9 departamentos de Bolivia se realizan <strong>por pagar en destino</strong> (no están incluidos en el costo del Box mencionado).</p>
+        </div>
+        <div class="faq-card">
+          <h3>¿Los productos son originales?</h3>
+          <p>Sí, trabajamos únicamente con maquillaje americano <strong>e.l.f. 100% original</strong> importado directamente desde Estados Unidos.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p><strong>NICE BOX AND BOL</strong> — Venta Mayorista de Maquillaje en Bolivia</p>
-    <p style="margin-top: 6px;">© 2026 Nice Box and Bol. Todos los derechos reservados.</p>
+    <p><strong>NICE BOX AND BOL</strong> — Venta al por Mayor de Maquillaje e.l.f. en Bolivia</p>
+    <p style="margin-top: 6px;">WhatsApp de pedidos: +591 62455548 • Envíos a todo el país</p>
   </footer>
 
   <!-- Carrito lateral -->
@@ -597,6 +624,7 @@
           <span>Total a pagar:</span>
           <span id="cartTotal">Bs 0</span>
         </div>
+        <p class="shipping-note">* El costo de envío no está incluido (se realiza por pagar en destino).</p>
 
         <div class="form-group">
           <label>Nombre completo</label>
@@ -621,13 +649,14 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Ciudad / Dirección o terminal de entrega</label>
-          <input type="text" id="clientAddress" placeholder="Ej. Terminal Bimodal / Dirección" />
+          <label>Ciudad / Terminal o dirección de entrega</label>
+          <input type="text" id="clientAddress" placeholder="Ej. Terminal / Dirección" />
         </div>
 
         <div class="qr-box">
           <strong>PAGO CON QR (BOLIVIANOS)</strong>
-          <p>Aquí colocaremos la imagen de tu QR oficial en el siguiente paso. El cliente paga el total y envía el comprobante por WhatsApp.</p>
+          <img src="QR.png" alt="Código QR de pago Nice Box and Bol" />
+          <p>Escanea o guarda este QR, realiza el pago del total en Bs y adjunta tu comprobante al enviarnos tu pedido por WhatsApp.</p>
         </div>
 
         <button class="btn-whatsapp" onclick="sendWhatsAppOrder()">
@@ -640,95 +669,84 @@
   <a href="#" class="wa-float" onclick="openDirectWhatsApp(); return false;">WhatsApp</a>
 
   <script>
-    // ==========================================
-    // CONFIGURACIÓN (Cambiaremos esto luego)
-    // ==========================================
-    const WHATSAPP_NUMBER = "59170000000"; // Reemplazar por tu número real con 591
+    const WHATSAPP_NUMBER = "59162455548";
 
     const PRODUCTS = [
       {
         id: 1,
-        name: "Caja Cerrada e.l.f. Cosmetics Surtida",
-        brand: "e.l.f.",
-        category: "caja",
-        pieces: 50,
-        price: 1850,
-        badge: "MÁS VENDIDA",
-        desc: "Caja mayorista original con primers, glosses, rubores, fijadores y brochas de alta rotación."
+        name: "Box 20 Piezas e.l.f.",
+        brand: "e.l.f. 100% Original",
+        pieces: 20,
+        price: 1300,
+        img: "20.jpeg",
+        badge: "IDEAL INICIO",
+        desc: "Box surtido importado de EE. UU. perfecto para iniciar tu negocio de maquillaje con baja inversión."
       },
       {
         id: 2,
-        name: "Lote Emprendedora Maybelline",
-        brand: "Maybelline",
-        category: "lote",
+        name: "Box 30 Piezas e.l.f.",
+        brand: "e.l.f. 100% Original",
         pieces: 30,
-        price: 1450,
-        badge: "IDEAL INICIO",
-        desc: "Selección mayorista con máscaras de pestañas, labiales Vinyl Ink, correctores y bases."
+        price: 1850,
+        img: "30.jpeg",
+        badge: "MÁS PEDIDO",
+        desc: "Excelente variedad de productos de alta demanda con mejor costo por pieza para revendedoras."
       },
       {
         id: 3,
-        name: "Caja Mayorista NYX Professional",
-        brand: "NYX",
-        category: "caja",
-        pieces: 40,
-        price: 1680,
-        badge: "NUEVO INGRESO",
-        desc: "Variedad de delineadores, glosses Fat Oil, sprays fijadores y productos de cejas."
+        name: "Box 50 Piezas e.l.f.",
+        brand: "e.l.f. 100% Original",
+        pieces: 50,
+        price: 2650,
+        img: "50.jpeg",
+        badge: "GRAN MARGEN",
+        desc: "Lote mayorista ideal para tiendas y emprendedoras en crecimiento. Máxima rotación y ganancia."
       },
       {
         id: 4,
-        name: "Pack Promo Mix Multimarcas",
-        brand: "e.l.f. • Maybelline • NYX",
-        category: "promo",
-        pieces: 60,
-        price: 2150,
-        badge: "PROMOCIÓN",
-        desc: "Combinación estratégica de las marcas más pedidas en Bolivia para maximizar tu ganancia."
+        name: "Box 100 Piezas e.l.f.",
+        brand: "e.l.f. 100% Original",
+        pieces: 100,
+        price: 5000,
+        img: "100.jpeg",
+        badge: "MEJOR PRECIO",
+        desc: "Nuestro Box más rentable: 50 Bs por pieza en promedio. Ideal para comerciantes y distribuidoras."
       }
     ];
 
     let cart = [];
 
-    function renderProducts(filter = 'todos') {
+    function renderProducts() {
       const grid = document.getElementById('productsGrid');
-      const list = filter === 'todos' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
-
-      grid.innerHTML = list.map(p => `
-        <div class="card">
-          <div class="card-img">
-            <span class="badge-top">${p.badge}</span>
-            <span class="badge-pieces">${p.pieces} piezas</span>
-            <div style="font-family: 'Playfair Display', serif; font-size: 20px; color: #c9a96e;">${p.brand}</div>
-            <div style="font-size: 12px; opacity: 0.8; margin-top: 6px;">Foto / Video de la caja</div>
-          </div>
-          <div class="card-body">
-            <div class="card-brand">${p.brand}</div>
-            <div class="card-title">${p.name}</div>
-            <div class="card-desc">${p.desc}</div>
-            <div class="card-price">Bs ${p.price.toLocaleString('es-BO')} <small>/ caja</small></div>
-            <div class="card-actions">
+      grid.innerHTML = PRODUCTS.map(p => {
+        const unit = (p.price / p.pieces).toFixed(1).replace('.0', '');
+        return `
+          <div class="card">
+            <div class="card-img" onclick="addToCart(${p.id})">
+              <span class="badge-top">${p.badge}</span>
+              <span class="badge-pieces">${p.pieces} piezas</span>
+              <img src="${p.img}" alt="${p.name}" />
+            </div>
+            <div class="card-body">
+              <div class="card-brand">${p.brand}</div>
+              <div class="card-title">${p.name}</div>
+              <div class="card-desc">${p.desc}</div>
+              <div class="price-row">
+                <div class="card-price">Bs ${p.price.toLocaleString('es-BO')}</div>
+                <div class="unit-price">~Bs ${unit} c/u</div>
+              </div>
               <button class="btn-add" onclick="addToCart(${p.id})">Agregar al carrito</button>
             </div>
           </div>
-        </div>
-      `).join('');
-    }
-
-    function filterProducts(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProducts(cat);
+        `;
+      }).join('');
     }
 
     function addToCart(id) {
       const product = PRODUCTS.find(p => p.id === id);
       const existing = cart.find(item => item.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...product, qty: 1 });
-      }
+      if (existing) existing.qty += 1;
+      else cart.push({ ...product, qty: 1 });
       updateCartUI();
       toggleCart(true);
     }
@@ -749,7 +767,7 @@
 
       const container = document.getElementById('cartItems');
       if (cart.length === 0) {
-        container.innerHTML = '<p style="color:#777; font-size:14px;">Tu carrito está vacío. Agrega una caja del catálogo.</p>';
+        container.innerHTML = '<p style="color:#777; font-size:14px;">Tu carrito está vacío. Agrega un Box del catálogo.</p>';
         return;
       }
 
@@ -777,7 +795,7 @@
 
     function sendWhatsAppOrder() {
       if (cart.length === 0) {
-        alert("Agrega al menos una caja o lote al carrito antes de enviar tu pedido.");
+        alert("Agrega al menos un Box al carrito antes de enviar tu pedido.");
         return;
       }
       const name = document.getElementById('clientName').value.trim();
@@ -786,12 +804,12 @@
       const address = document.getElementById('clientAddress').value.trim();
 
       if (!name || !phone || !address) {
-        alert("Por favor completa tu nombre, celular y dirección de entrega.");
+        alert("Por favor completa tu nombre, celular y dirección/terminal de entrega.");
         return;
       }
 
       const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const itemsText = cart.map(i => `• ${i.qty}x ${i.name} (Bs ${i.price * i.qty})`).join('%0A');
+      const itemsText = cart.map(i => `• ${i.qty}x ${i.name} (Bs ${(i.price * i.qty).toLocaleString('es-BO')})`).join('%0A');
 
       const message = `Hola *Nice Box and Bol*! Quiero confirmar mi pedido mayorista:%0A%0A` +
         `*Cliente:* ${name}%0A` +
@@ -799,14 +817,14 @@
         `*Departamento:* ${dept}%0A` +
         `*Entrega:* ${address}%0A%0A` +
         `*Detalle del pedido:*%0A${itemsText}%0A%0A` +
-        `*Total a pagar:* Bs ${total.toLocaleString('es-BO')}%0A%0A` +
+        `*Total a pagar:* Bs ${total.toLocaleString('es-BO')} (envío por pagar)%0A%0A` +
         `Adjunto mi comprobante de pago QR.`;
 
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
     }
 
     function openDirectWhatsApp() {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hola%20Nice%20Box%20and%20Bol,%20quiero%20informaci%C3%B3n%20sobre%20cajas%20mayoristas.`, '_blank');
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hola%20Nice%20Box%20and%20Bol,%20quiero%20informaci%C3%B3n%20sobre%20los%20Box%20mayoristas%20de%20e.l.f.`, '_blank');
     }
 
     renderProducts();
