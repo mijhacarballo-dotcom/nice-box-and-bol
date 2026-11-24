@@ -22,6 +22,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Montserrat', sans-serif;
       color: var(--negro);
@@ -78,7 +79,7 @@
     }
     .logo-text span { color: var(--fucsia); }
 
-    nav { display: flex; gap: 22px; align-items: center; }
+    nav { display: flex; gap: 20px; align-items: center; }
     nav a {
       font-size: 13px;
       font-weight: 600;
@@ -87,6 +88,13 @@
       transition: color 0.2s;
     }
     nav a:hover { color: var(--fucsia); }
+    .nav-sorteo {
+      background: var(--fucsia-suave);
+      color: var(--fucsia) !important;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(217, 28, 119, 0.25);
+    }
 
     .cart-btn {
       background: var(--negro);
@@ -120,7 +128,7 @@
     .hero {
       background: linear-gradient(135deg, var(--negro) 0%, #301624 100%);
       color: var(--blanco);
-      padding: 70px 20px;
+      padding: 68px 20px;
       text-align: center;
     }
     .hero-inner { max-width: 820px; margin: 0 auto; }
@@ -318,6 +326,204 @@
     }
     .btn-add:hover { background: var(--fucsia); }
 
+    /* ==========================================
+       SECCIÓN SORTEO NAVIDEÑO
+    ========================================== */
+    .raffle-section {
+      background: linear-gradient(180deg, #171215 0%, #27131e 100%);
+      color: var(--blanco);
+    }
+    .raffle-badge {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--negro);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 30px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .raffle-section .section-title h2 { color: var(--blanco); }
+    .raffle-section .section-title p { color: #e2d5dc; }
+
+    .prizes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+    .prize-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(242, 207, 67, 0.35);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+    .prize-card.first {
+      border: 2px solid var(--amarillo);
+      background: rgba(217, 28, 119, 0.16);
+    }
+    .prize-rank {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--amarillo);
+      margin-bottom: 6px;
+    }
+    .prize-card h3 { font-size: 20px; margin-bottom: 6px; }
+    .prize-card p { font-size: 13px; color: #ddd; }
+
+    .raffle-layout {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .raffle-board-box, .raffle-checkout-box {
+      background: var(--blanco);
+      color: var(--negro);
+      border-radius: 18px;
+      padding: 24px;
+    }
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--gris-borde);
+    }
+    .board-stats {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--fucsia-suave);
+      color: var(--negro);
+    }
+    .stat-pill.sold { background: #efefef; color: #777; }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .legend span { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+    .leg-dot { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+    .leg-free { border: 1.5px solid #d5c7ce; background: #fff; }
+    .leg-sel { background: var(--fucsia); }
+    .leg-sold { background: #e3e3e3; }
+
+    .tickets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+      gap: 8px;
+    }
+    .ticket-num {
+      height: 44px;
+      border-radius: 8px;
+      border: 1.5px solid #e0d4da;
+      background: var(--blanco);
+      color: var(--negro);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .ticket-num:hover:not(:disabled) {
+      border-color: var(--fucsia);
+      background: var(--fucsia-suave);
+    }
+    .ticket-num.selected {
+      background: var(--fucsia);
+      border-color: var(--fucsia);
+      color: var(--blanco);
+      transform: scale(1.04);
+    }
+    .ticket-num.sold {
+      background: #ececec;
+      border-color: #e2e2e2;
+      color: #a8a8a8;
+      text-decoration: line-through;
+      cursor: not-allowed;
+    }
+
+    .ticket-preview {
+      background: linear-gradient(135deg, var(--negro) 0%, #3a1728 100%);
+      color: var(--blanco);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1.5px dashed var(--amarillo);
+    }
+    .ticket-preview-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--amarillo);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .selected-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    .chip-num {
+      background: var(--fucsia);
+      color: var(--blanco);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .raffle-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .raffle-warning {
+      font-size: 12px;
+      color: var(--gris-texto);
+      background: #fff9e6;
+      border: 1px solid #f2cf43;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .btn-refresh {
+      background: transparent;
+      border: 1px solid var(--gris-borde);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-refresh:hover { border-color: var(--fucsia); color: var(--fucsia); }
+
     /* Preguntas y Cómo Comprar */
     .soft-bg { background: var(--fucsia-suave); }
     .steps-grid {
@@ -505,7 +711,7 @@
       margin: 16px 0;
     }
     .qr-box img {
-      width: 210px;
+      width: 200px;
       max-width: 100%;
       border-radius: 10px;
       margin: 10px auto;
@@ -561,6 +767,9 @@
     }
     footer strong { color: var(--amarillo); }
 
+    @media (max-width: 900px) {
+      .raffle-layout { grid-template-columns: 1fr; }
+    }
     @media (max-width: 720px) {
       nav a { display: none; }
       .logo-text { font-size: 18px; }
@@ -581,6 +790,7 @@
       </a>
       <nav>
         <a href="#catalogo">Catálogo</a>
+        <a href="#sorteo" class="nav-sorteo">Sorteo 12 Dic</a>
         <a href="#como-comprar">Cómo comprar</a>
         <a href="#preguntas">Preguntas</a>
         <button class="cart-btn" onclick="toggleCart()">
@@ -597,7 +807,7 @@
       <p>Abastece tu negocio con productos de alta demanda y excelente margen de ganancia. Box surtidos listos para emprender y revender en toda Bolivia.</p>
       <div class="hero-actions">
         <a href="#catalogo" class="btn-primary">Ver Box Disponibles</a>
-        <a href="#preguntas" class="btn-outline">Dudas frecuentes</a>
+        <a href="#sorteo" class="btn-outline">Participar en el Sorteo Navideño</a>
       </div>
     </div>
   </section>
@@ -619,6 +829,116 @@
       </div>
 
       <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN GRAN SORTEO NAVIDEÑO -->
+  <section id="sorteo" class="raffle-section">
+    <div class="container">
+      <div class="section-title">
+        <div class="raffle-badge">Gran Sorteo Navideño • 12 de Diciembre</div>
+        <h2>Gana tu negocio completo de maquillaje e.l.f.</h2>
+        <p>Solo <strong>120 tickets</strong> a <strong>Bs 100 cada uno</strong>. Sorteo el <strong>12 de diciembre</strong> para que recibas tu Box a tiempo de vender en Navidad.</p>
+      </div>
+
+      <div class="prizes-grid">
+        <div class="prize-card first">
+          <div class="prize-rank">1er Premio</div>
+          <h3>Box de 100 Piezas e.l.f.</h3>
+          <p>Valorado en Bs 5.000 • Maquillaje 100% original listo para emprender.</p>
+        </div>
+        <div class="prize-card">
+          <div class="prize-rank">2do Premio</div>
+          <h3>Box de 50 Piezas e.l.f.</h3>
+          <p>Valorado en Bs 2.650 • Alta rotación y excelente margen de ganancia.</p>
+        </div>
+        <div class="prize-card">
+          <div class="prize-rank">3er Premio</div>
+          <h3>Box de 30 Piezas e.l.f.</h3>
+          <p>Valorado en Bs 1.850 • Variedad surtida de los productos más pedidos.</p>
+        </div>
+      </div>
+
+      <div class="raffle-layout">
+        <!-- Tablero de 120 números -->
+        <div class="raffle-board-box">
+          <div class="board-header">
+            <div>
+              <h3 style="font-size: 18px;">Elige tus números de la suerte</h3>
+              <p style="font-size: 12px; color: var(--gris-texto);">Toca uno o más números disponibles (Bs 100 c/u)</p>
+            </div>
+            <div class="board-stats">
+              <span class="stat-pill" id="statAvailable">Cargando...</span>
+              <span class="stat-pill sold" id="statSold">0 vendidos</span>
+              <button class="btn-refresh" onclick="loadRaffleData()">Actualizar</button>
+            </div>
+          </div>
+
+          <div class="legend">
+            <span><i class="leg-dot leg-free"></i> Disponible</span>
+            <span><i class="leg-dot leg-sel"></i> Elegido por ti</span>
+            <span><i class="leg-dot leg-sold"></i> Vendido</span>
+          </div>
+
+          <div class="tickets-grid" id="ticketsGrid"></div>
+        </div>
+
+        <!-- Panel de compra de ticket -->
+        <div class="raffle-checkout-box">
+          <div class="ticket-preview">
+            <div class="ticket-preview-top">
+              <span>Ticket Oficial • Sorteo 12 Dic</span>
+              <span>Bs 100 c/u</span>
+            </div>
+            <div style="font-size: 13px; opacity: 0.9;">Tus números seleccionados:</div>
+            <div class="selected-chips" id="selectedChips">
+              <span style="font-size: 13px; opacity: 0.75;">Toca un número en el tablero para elegirlo</span>
+            </div>
+            <div class="raffle-total-row">
+              <span>Total a pagar:</span>
+              <span id="raffleTotal">Bs 0</span>
+            </div>
+          </div>
+
+          <div class="raffle-warning">
+            <strong>Importante:</strong> Tu número queda oficialmente reservado y confirmado únicamente después de verificar tu comprobante de pago QR por WhatsApp.
+          </div>
+
+          <div class="form-group">
+            <label>Tu nombre completo</label>
+            <input type="text" id="raffleName" placeholder="Ej. Carla Mendoza" />
+          </div>
+          <div class="form-group">
+            <label>Tu celular (WhatsApp)</label>
+            <input type="tel" id="rafflePhone" placeholder="Ej. 70000000" />
+          </div>
+          <div class="form-group">
+            <label>Departamento</label>
+            <select id="raffleDept">
+              <option value="Santa Cruz">Santa Cruz</option>
+              <option value="La Paz">La Paz</option>
+              <option value="Cochabamba">Cochabamba</option>
+              <option value="Oruro">Oruro</option>
+              <option value="Chuquisaca (Sucre)">Chuquisaca (Sucre)</option>
+              <option value="Tarija">Tarija</option>
+              <option value="Potosí">Potosí</option>
+              <option value="Beni">Beni</option>
+              <option value="Pando">Pando</option>
+            </select>
+          </div>
+
+          <div class="qr-box">
+            <strong>PAGA TU TICKET CON QR</strong>
+            <img src="QR.png" alt="Código QR Sorteo Nice Box and Bol" />
+            <a href="QR.png" download="QR-Sorteo-NiceBoxAndBol.png" class="btn-download-qr">Descargar código QR</a>
+            <p>Realiza el pago según la cantidad de tickets elegidos y envíanos el comprobante.</p>
+          </div>
+
+          <button class="btn-whatsapp" onclick="sendRaffleWhatsApp()">
+            Confirmar tickets y enviar comprobante por WhatsApp
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -760,6 +1080,9 @@
 
   <script>
     const WHATSAPP_NUMBER = "59162455548";
+    const RAFFLE_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRN7CrOmTIJ3OB9jhrZuXTwRMck7oc1Y-x1S_OLSJpHY3Ix8MGdxgpggNLa6GLTQb7ZgrIumQ0Xjhfm/pub?output=csv";
+    const TOTAL_TICKETS = 120;
+    const TICKET_PRICE = 100;
 
     const PRODUCTS = [
       {
@@ -805,7 +1128,12 @@
     ];
 
     let cart = [];
+    let soldNumbers = new Set();
+    let selectedNumbers = new Set();
 
+    // ==========================================
+    // CATÁLOGO Y CARRITO
+    // ==========================================
     function renderProducts() {
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = PRODUCTS.map(p => {
@@ -937,11 +1265,117 @@
     }
 
     function openDirectWhatsApp() {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hola%20Nice%20Box%20and%20Bol,%20quiero%20informaci%C3%B3n%20sobre%20los%20Box%20mayoristas%20de%20e.l.f.`, '_blank');
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hola%20Nice%20Box%20and%20Bol,%20quiero%20informaci%C3%B3n%20sobre%20los%20Box%20mayoristas%20y%20el%20sorteo%20navide%C3%B1o.`, '_blank');
+    }
+
+    // ==========================================
+    // SORTEO NAVIDEÑO (CONECTADO A GOOGLE SHEETS)
+    // ==========================================
+    function formatNum(n) {
+      return String(n).padStart(3, '0');
+    }
+
+    async function loadRaffleData() {
+      document.getElementById('statAvailable').textContent = 'Actualizando...';
+      try {
+        const res = await fetch(`${RAFFLE_CSV_URL}&t=${Date.now()}`);
+        const text = await res.text();
+        const lines = text.trim().split(/\r?\n/);
+        const newSold = new Set();
+
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i].split(',');
+          if (cols.length < 2) continue;
+          const num = parseInt(cols[0].replace(/"/g, '').trim(), 10);
+          const status = cols[1].replace(/"/g, '').trim().toLowerCase();
+          if (num >= 1 && num <= TOTAL_TICKETS && status !== '' && status !== 'disponible' && status !== 'libre') {
+            newSold.add(num);
+            selectedNumbers.delete(num);
+          }
+        }
+        soldNumbers = newSold;
+      } catch (err) {
+        console.error('Error cargando Google Sheets:', err);
+      }
+      renderRaffleBoard();
+      renderRaffleSelection();
+    }
+
+    function renderRaffleBoard() {
+      const grid = document.getElementById('ticketsGrid');
+      const soldCount = soldNumbers.size;
+      const availCount = TOTAL_TICKETS - soldCount;
+
+      document.getElementById('statAvailable').textContent = `${availCount} disponibles`;
+      document.getElementById('statSold').textContent = `${soldCount} vendidos`;
+
+      let html = '';
+      for (let i = 1; i <= TOTAL_TICKETS; i++) {
+        const isSold = soldNumbers.has(i);
+        const isSel = selectedNumbers.has(i);
+        const cls = isSold ? 'ticket-num sold' : (isSel ? 'ticket-num selected' : 'ticket-num');
+        html += `<button class="${cls}" ${isSold ? 'disabled' : `onclick="toggleTicket(${i})"`}>${formatNum(i)}</button>`;
+      }
+      grid.innerHTML = html;
+    }
+
+    function toggleTicket(num) {
+      if (soldNumbers.has(num)) return;
+      if (selectedNumbers.has(num)) selectedNumbers.delete(num);
+      else selectedNumbers.add(num);
+      renderRaffleBoard();
+      renderRaffleSelection();
+    }
+
+    function renderRaffleSelection() {
+      const sorted = Array.from(selectedNumbers).sort((a, b) => a - b);
+      const chips = document.getElementById('selectedChips');
+      const totalEl = document.getElementById('raffleTotal');
+
+      if (sorted.length === 0) {
+        chips.innerHTML = '<span style="font-size: 13px; opacity: 0.75;">Toca un número en el tablero para elegirlo</span>';
+        totalEl.textContent = 'Bs 0';
+        return;
+      }
+
+      chips.innerHTML = sorted.map(n => `<span class="chip-num">#${formatNum(n)}</span>`).join('');
+      totalEl.textContent = `Bs ${(sorted.length * TICKET_PRICE).toLocaleString('es-BO')}`;
+    }
+
+    function sendRaffleWhatsApp() {
+      const sorted = Array.from(selectedNumbers).sort((a, b) => a - b);
+      if (sorted.length === 0) {
+        alert("Selecciona al menos un número disponible en el tablero del sorteo.");
+        return;
+      }
+
+      const name = document.getElementById('raffleName').value.trim();
+      const phone = document.getElementById('rafflePhone').value.trim();
+      const dept = document.getElementById('raffleDept').value;
+
+      if (!name || !phone) {
+        alert("Por favor escribe tu nombre completo y tu número de celular.");
+        return;
+      }
+
+      const numsText = sorted.map(n => `#${formatNum(n)}`).join(', ');
+      const total = sorted.length * TICKET_PRICE;
+
+      const message = `Hola *Nice Box and Bol*! Quiero participar en el *Gran Sorteo Navideño (12 de Diciembre)*:%0A%0A` +
+        `*Participante:* ${name}%0A` +
+        `*Celular:* ${phone}%0A` +
+        `*Departamento:* ${dept}%0A` +
+        `*Números elegidos:* ${numsText}%0A` +
+        `*Cantidad de tickets:* ${sorted.length}%0A` +
+        `*Total a pagar:* Bs ${total.toLocaleString('es-BO')}%0A%0A` +
+        `Adjunto mi comprobante de pago QR para confirmar mis números.`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
     }
 
     renderProducts();
     updateCartUI();
+    loadRaffleData();
   </script>
 </body>
 </html>
